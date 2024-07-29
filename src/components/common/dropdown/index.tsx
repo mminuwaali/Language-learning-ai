@@ -48,11 +48,11 @@ export default function Dropdown<T>(properties: DropdownType<T>) {
   }, []);
 
   return (
-    <div className="relative flex flex-col w-80 md:w-96">
+    <div className="relative flex w-80 flex-col md:w-96">
       <div
         ref={containerReference}
         onClick={() => setVisible(!visible)}
-        className="z-20 flex justify-between items-center bg-black p-4 rounded-t-3xl w-full"
+        className="z-20 flex w-full items-center justify-between rounded-t-3xl bg-black p-4"
       >
         {properties.headerLeft}
         {properties.headerRight}
@@ -61,7 +61,7 @@ export default function Dropdown<T>(properties: DropdownType<T>) {
       {visible && (
         <motion.div
           {...motionProperites}
-          className="top-full z-10 absolute bg-white shadow-lg mt-1 rounded-b-md w-full"
+          className="absolute top-full z-10 mt-1 w-full rounded-b-md bg-white shadow-lg"
         >
           {properties.options?.map((option, index) => {
             if ("component" in option)
@@ -69,14 +69,14 @@ export default function Dropdown<T>(properties: DropdownType<T>) {
             return (
               <button
                 key={index}
-                className="flex flex-row justify-start items-center gap-2"
+                className="flex flex-row items-center justify-start gap-2"
               >
                 <Image
                   width={100}
                   height={100}
                   src={option.icon}
                   alt={option.label}
-                  className="w-6 h-6 object-contain"
+                  className="h-6 w-6 object-contain"
                 />
                 <span className="text-sm">{option.label}</span>
               </button>
