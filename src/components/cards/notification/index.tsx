@@ -7,20 +7,23 @@ type PropertyType = {
   id: string;
   image: string;
   createdAt: string;
+  className?: string;
   message: string | React.ReactNode;
   links?: { onClick: React.MouseEventHandler; label: string }[];
 };
 
 export default function NotificationCard(properties: PropertyType) {
   return (
-    <div className="flex w-96 flex-col gap-2 p-6 py-4 shadow">
+    <div
+      className={`flex w-full flex-col gap-2 p-6 py-4 shadow ${properties.className || "w-96"}`}
+    >
       <div className="flex w-full items-center justify-between gap-4">
         <Image
           alt=""
           width={100}
           height={100}
           src={properties.image}
-          className="h-8 w-8 rounded-full bg-black object-contain"
+          className="h-8 w-8 rounded-full object-contain"
         />
 
         <p className="flex-auto text-xs">{properties.message}</p>
