@@ -61,7 +61,7 @@ export default function Dropdown<T>(properties: DropdownType<T>) {
       {visible && (
         <motion.div
           {...motionProperites}
-          className="absolute top-full z-10 mt-1 w-full rounded-b-md bg-white shadow-lg"
+          className="absolute top-full z-10 mt-1 w-full rounded-b-3xl bg-white shadow-lg"
         >
           {properties.options?.map((option, index) => {
             if ("component" in option)
